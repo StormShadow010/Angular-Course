@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('02-bases');
+  protected readonly title = signal('Starting with Angular 22');
 }
