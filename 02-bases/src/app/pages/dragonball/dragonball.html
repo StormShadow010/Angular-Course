@@ -1,0 +1,46 @@
+<main class="max-w-4xl mx-auto p-6">
+  <h1 class="text-3xl font-bold">Dragon Ball Page</h1>
+  <hr class="my-4 border-gray-300" />
+
+  <section class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <!-- Formulario -->
+    <div class="flex flex-col gap-2">
+      <h3 class="text-xl font-semibold">Agregar:</h3>
+      <input
+        type="text"
+        placeholder="Nombre del personaje"
+        class="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+      />
+      <input
+        type="number"
+        placeholder="Poder del personaje"
+        class="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
+      />
+      <button
+        class="self-start rounded-md bg-orange-500 px-4 py-2 font-medium text-white hover:bg-orange-600 active:scale-95 transition"
+      >
+        Agregar
+      </button>
+    </div>
+
+    <!-- Lista -->
+    <div>
+      <h3 class="text-xl font-semibold mb-2">Personajes:</h3>
+      <ol class="list-decimal list-inside space-y-1">
+        @for (character of characters(); track character.id; let indx = $index) {
+          <li>
+            <div class="inline-flex w-[calc(100%-2rem)] justify-between items-center">
+              <span> {{ character.name }}</span>
+              <span
+                /* [class.text-red-500]="character.powerLevel > 9000"
+                [class.text-blue-500]="character.powerLevel <= 9000" */
+                [ngClass]="powerClasses(character.powerLevel)"
+                >Poder: {{ character.powerLevel }}</span
+              >
+            </div>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+</main>
